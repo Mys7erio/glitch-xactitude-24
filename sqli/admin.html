@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background: rgb(27, 27, 50);
+      background-image: linear-gradient(
+          0deg,
+          rgba(5127, 19, 121, 0.5),
+          rgba(115, 115, 206, 0.7)
+        ),
+        url("./assets/adminBackground.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    body {
+      font-family: "Work Sans", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 400px;
+      height: 440px;
+      background: transparent;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .wrapper .from-box {
+      width: 100px;
+      padding: 40px;
+    }
+
+    .wrapper .from-box.login {
+      display: none;
+    }
+
+    .wrapper .icon-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45px;
+      height: 45x;
+      background: #162938;
+      font-size: 2em;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom-left-radius: 20px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .from-box h2 {
+      font-size: 2em;
+      color: #162938;
+      text-align: center;
+    }
+
+    .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid #162938;
+      margin: 30px 0;
+    }
+
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: #162938;
+      font-weight: 500;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -5px;
+    }
+
+    .input-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      color: #162938;
+      font-weight: 600;
+      padding: 0 35px 0 5px;
+    }
+
+    .input-box .icon {
+      position: absolute;
+      right: 8px;
+      font-size: 1.2em;
+      color: #162938;
+      line-height: 57px;
+    }
+
+    .btn {
+      width: 100%;
+      height: 45px;
+      background: #162938;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #fff;
+      font-weight: 500;
+      margin-top: 25px;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <h2>Login</h2>
+      <form action="login.php" method="GET">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+          <input type="username" name="username" required />
+          <label>Username</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
+          <input type="password" name="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
