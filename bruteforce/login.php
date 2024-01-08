@@ -12,13 +12,14 @@ if (!$db) {
 
 if (isset($_GET['username']) && isset($_GET['password'])) {
 
-
     $username = $_GET['username'];
     $password = $_GET['password'];
-    
-    $getid = "SELECT username, password FROM users WHERE username = '$username' AND password = '$password'";
 
+    $getid = "SELECT username, password FROM users WHERE username = :username AND password = :password";
     $stmt = $db->prepare($getid);
+    $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+    $stmt->bindValue(':password', $password, SQLITE3_TEXT);
+
     $result = $stmt->execute();
 
     if ($result === FALSE) {
@@ -38,11 +39,10 @@ if (isset($_GET['username']) && isset($_GET['password'])) {
 
     if ($numRows > 0) {
         echo '<pre>';
-        echo 'Login successful.';
+        echo 'Flag: fresfesdvef';
         echo '</pre>';
-        
+
     } else {
-        // Login failed
         echo '<pre>';
         echo 'Login failed. Incorrect username or password.';
         echo '</pre>';
