@@ -35,7 +35,7 @@ def create_app():
         if query:
             with open('app/templates/search.html', 'r') as f:
                 return render_template_string(f.read().replace("{{ resp }}", f"No results for \'{query}\'"))
-            return render_template('search.html', resp=f"No results for \'{query}\'")
+#            return render_template('search.html', resp=f"No results for \'{query}\'")
 
         return render_template('search.html')
 
