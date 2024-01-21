@@ -29,7 +29,6 @@ int main(){
 
 	if (flagCheck){
 		printf("%s", FLAG);
-		//printf("glitch{Cry1ng_0ver_5p1lt_buff3r}");
 	}
 
 	fclose(flag_file);
