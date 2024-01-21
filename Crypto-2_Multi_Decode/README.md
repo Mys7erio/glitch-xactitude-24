@@ -1,7 +1,9 @@
 # Multi Decode
 
-Hex: `5479766770757b6a556c5f6e45525f6a725f66673159795f755265727d`
+Provided Code: `6a556c4e45526a72466756797975526572`
 
-ROT-13: `Tyvgpu{jUl_nER_jr_fg1Yy_uRer}`
+String to Hash: `jUlNERjrFgVyyuRer`
 
-Flag: `Glitch{wHy_aRE_we_st1Ll_hEre}`
+ROT-13: `wHyAREweStIllhEre`
+
+Flag: `Glitch{wHyAREweStIllhEre}`
