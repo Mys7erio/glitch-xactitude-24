@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
-RUN apt-get update
-
+#RUN apt-get update
+ENV SECRET_KEY=8a7b#Bc1$%7dEf2Gh3*Jk1lMn0Pq4rSt5Uv6WxYz
 EXPOSE 8000
 
 WORKDIR /webchal_3
