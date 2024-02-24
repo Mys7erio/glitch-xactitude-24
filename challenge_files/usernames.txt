@@ -29,7 +29,7 @@ mail
 charles
 bill
 patrick
-1234
+sobaka
 peter
 shadow
 johnny
@@ -39,7 +39,7 @@ black
 jason
 tarrant
 alex
-brian
+magandaako
 steven
 scott
 edward
