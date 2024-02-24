@@ -1,55 +1,10 @@
-<?php 
-session_start();
-
-include 'db/DB_Connect.php';
-
-if (isset($_SESSION['isAdmin'])){
-    header('Location: dashboard.php');
-    exit();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === "POST"){
-
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
-    
-    try {
-        $statement = $db->prepare("SELECT id, password FROM users WHERE username = :username");
-        $statement->bindParam(':username', $user, PDO::PARAM_STR);
-        $statement->execute();
-    
-        $res = $statement->fetch(PDO::FETCH_ASSOC);
-        //var_dump($res)
-
-        if($res && password_verify($pass, $res['password'])) {   
-
-            $cookie_cons = base64_encode(json_encode(array("admin"=>0)));
-            $_SESSION['isAdmin'] = $cookie_cons;
-            setcookie("isAdmin", $cookie_cons, time() + 600, "/");
-
-            header("Location: dashboard.php");
-            exit();
-        
-        } else {
-        
-            $error_msg = "<script>alert('Invalid username or password.');</script>";
-            echo $error_msg;
-        
-        }
-    
-    } catch (PDOException $e) {
-        die('Query Failed:' . $e -> getMessage());
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login</title>
+    <title>About Us</title>
     <style>
         body {
             background-color: #121212; 
@@ -99,6 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             text-decoration: none;
         }
 
+        .glow {
+            color: #f5f3da; 
+            text-shadow: 0 0 5px #f5e642, 0 0 15px #f5e642, 0 0 20px #f5e642; 
+        }
+
     </style>
 </head>
 <body>
@@ -114,21 +74,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/about.php">About</a>
+                    <a class="nav-link" href="about.php">About</a>
                 </li>
  
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
- 
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">APIs</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Careers.php">Careers</a>
+                    <a class="nav-link" href="Careers.php">Careers</a>
                 </li>
  
             </ul>
@@ -145,37 +104,21 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     </div>
 </nav>
 
-<!-- Login Form -->
 <div class="container mt-5">
     <div class="row justify-content-center">
+    <h2 class="text-center mb-5 glow">About Us</h2>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    Login
-                </div>
                 <div class="card-body">
-                    <!-- Your login form goes here -->
-                    <form action="login.php" method="POST">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div align="center">
-                            <button type="submit" class="btn btn-success">Login</button>
-                        </div>
-                    </form>                
+                    <p>Welcome to Wheelbarrow!</p>
+                    <p>We are passionate about barbecue and have been serving delicious, mouth-watering dishes to our customers for over a decade.</p>
+                    <p>At Wheelbarrow BBQ, we take pride in using only the finest quality meats and freshest ingredients to create our signature dishes.</p>
+                    <p>Come, book a session with us and experience the true taste of barbecue!</p>
+                </div>
+                <div class="card-footer">
+                    <p>Have a Problem? contact the admin.</p>
                 </div>
                 
-                <div align="center" class="card-footer text-muted">
-                    <a href="javascript:alert('Contact administrator.')">Forgot Password?</a>
-                </div>
-                <div align="center" class="card-footer text-muted">
-                    <a href="signup.php">Don't have an account? Signup.</a>
-                </div>
             </div>
         </div>
     </div> 

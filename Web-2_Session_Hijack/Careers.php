@@ -1,55 +1,10 @@
-<?php 
-session_start();
-
-include 'db/DB_Connect.php';
-
-if (isset($_SESSION['isAdmin'])){
-    header('Location: dashboard.php');
-    exit();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === "POST"){
-
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
-    
-    try {
-        $statement = $db->prepare("SELECT id, password FROM users WHERE username = :username");
-        $statement->bindParam(':username', $user, PDO::PARAM_STR);
-        $statement->execute();
-    
-        $res = $statement->fetch(PDO::FETCH_ASSOC);
-        //var_dump($res)
-
-        if($res && password_verify($pass, $res['password'])) {   
-
-            $cookie_cons = base64_encode(json_encode(array("admin"=>0)));
-            $_SESSION['isAdmin'] = $cookie_cons;
-            setcookie("isAdmin", $cookie_cons, time() + 600, "/");
-
-            header("Location: dashboard.php");
-            exit();
-        
-        } else {
-        
-            $error_msg = "<script>alert('Invalid username or password.');</script>";
-            echo $error_msg;
-        
-        }
-    
-    } catch (PDOException $e) {
-        die('Query Failed:' . $e -> getMessage());
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Login</title>
+    <title>Careers</title>
     <style>
         body {
             background-color: #121212; 
@@ -65,12 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         .card {
             background-color: #333333;
             color: #ffffff; 
+            margin-bottom: 20px;
         }
         .card-header {
             background-color: #212121;
             color: #ffffff;
         }
-        .card-footer {
+        .card-body, .card-footer {
             background-color: #212121;
             color: #ffffff;
         }
@@ -99,7 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             text-decoration: none;
         }
 
-    </style>
+
+        .glow-green {
+            color: #fff; 
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; 
+        }
+
+        </style>
 </head>
 <body>
 
@@ -112,71 +74,60 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-
                 <li class="nav-item">
-                    <a class="nav-link" href="/about.php">About</a>
+                    <a class="nav-link" href="about.php">About</a>
                 </li>
- 
-
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
- 
-
                 <li class="nav-item">
                     <a class="nav-link" href="#">APIs</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="/Careers.php">Careers</a>
+                    <a class="nav-link" href="Careers.php">Careers</a>
                 </li>
- 
             </ul>
             <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Signup</a>
+                <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Signup</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
-                </li> 
+               </li> 
    
             </ul>
+
         </div>
     </div>
 </nav>
 
-<!-- Login Form -->
+<!-- Careers Section -->
 <div class="container mt-5">
+    <h2 class="text-center mb-5 glow-green">Work with us</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
+
             <div class="card">
                 <div class="card-header">
-                    Login
+                    <h5>Administrator/sysadmin<h5>
                 </div>
-                <div class="card-body">
-                    <!-- Your login form goes here -->
-                    <form action="login.php" method="POST">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div align="center">
-                            <button type="submit" class="btn btn-success">Login</button>
-                        </div>
-                    </form>                
-                </div>
-                
-                <div align="center" class="card-footer text-muted">
-                    <a href="javascript:alert('Contact administrator.')">Forgot Password?</a>
-                </div>
-                <div align="center" class="card-footer text-muted">
-                    <a href="signup.php">Don't have an account? Signup.</a>
+                <div style="background-color:black" class="card-body">
+                    <p>Looking for enthusiastic admins to join our company. Benefits include free food and biscuits.</p>
+                    <p>Salary: N/A</p>
                 </div>
             </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5> HR Recruiter </h5> 
+                </div>
+                <div style="background-color:black" class="card-body">
+                    <p>Young vibrant recruiters who knows how to create job descriptions are welcome to apply.</p>
+                    <p>Salary: $31337</p>
+                </div>
+            </div>
+
+
         </div>
     </div> 
 </div>
