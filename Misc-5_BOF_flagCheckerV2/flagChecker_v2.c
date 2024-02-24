@@ -15,7 +15,7 @@ void userInput(){
 // EIP target FUNCTION
 void readFlag() {
 
-  char flag[64];
+  char flag[FLAG_BUFF];
 
   FILE *f = fopen("flag.txt","r");
 
@@ -24,15 +24,18 @@ void readFlag() {
     exit(0);
   }
 
-  fgets(flag,64,f);
+  fgets(flag, FLAG_BUFF, f);
   printf(flag);
 }
 
 
 int main(){
 
-  printf("\n-------FlagCheckerV2--------\n");
+  setvbuf(stdout, NULL, _IONBF, 0);
+
+  printf("-------FlagCheckerV2--------\n");
   puts("Please enter your flag: ");
+
   userInput();
   return 0;
 }
