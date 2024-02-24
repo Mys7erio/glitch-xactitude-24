@@ -5,6 +5,8 @@
 
 int main(){
 
+    setvbuf(stdout, NULL, _IONBF, 0);
+
 	char UserFlag[FLAG_BUFF];
 	int flagCheck = 0;
 
