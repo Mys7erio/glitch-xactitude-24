@@ -32,6 +32,7 @@ if (isset($_GET['username']) && isset($_GET['password'])) {
         $user = $row["username"];
         $pass = $row["password"];
 
+        http_response_code(200);
         echo '<pre>';
         echo '<br>Username: ' . $user . '<br>Password: ' . $pass;
         echo '</pre>';
@@ -39,10 +40,10 @@ if (isset($_GET['username']) && isset($_GET['password'])) {
 
     if ($numRows > 0) {
         echo '<pre>';
-        echo 'Flag: fresfesdvef';
+        echo 'Flag: glitch{' . $pass . '}';
         echo '</pre>';
-
     } else {
+        http_response_code(401);
         echo '<pre>';
         echo 'Login failed. Incorrect username or password.';
         echo '</pre>';

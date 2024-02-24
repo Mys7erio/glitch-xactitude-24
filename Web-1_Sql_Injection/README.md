@@ -1,4 +1,15 @@
-Welcome soldier. Here is your mission. 
-We have discovered a hidden site that sells unauthorized products. Your task is to do an SQL injection into the site.
+# SQL Injection
 
-We hope that you have a successful mission.
+Hosting:
+
+```bash
+docker build -t sqli .
+docker run -p 8080:80 sqli
+```
+
+Solution:
+
+1. Navigate to <url>/admin
+2. Username: `admin` Password: `' or 1 == 1 --'`
+
+Flag: `glitch{MayTheF0rceB3W1thY0u}`

@@ -23,7 +23,7 @@ RUN mkdir -p uploads && chown -R www-data:www-data uploads
 
 RUN mkdir -p /var/www/html/flag && chmod 555 /var/www/html/flag
 
-RUN echo "CTF{yguyg7g7tycy}" > /var/www/html/flag/flag.txt 
+RUN echo "glitch{1_4M_B4tm4n}" > /var/www/html/flag/flag.txt 
 RUN chmod a-w /var/www/html/flag/flag.txt 
 
 EXPOSE 80
