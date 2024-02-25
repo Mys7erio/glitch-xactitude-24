@@ -20,6 +20,21 @@
       .mySlides {
         display: none;
       }
+      .loginButton {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .loginButton svg {
+        width: 1em;
+        height: 1em;
+        margin-right: 0.2em;
+        fill: white;
+      }
+
+      .loginButton:hover svg {
+        fill: black;
+      }
     </style>
   </head>
   <body>
@@ -60,10 +75,16 @@
           </div>
         </div>
         <a
-          href="javascript:void(0)"
-          class="w3-padding-large w3-hover-red w3-hide-small w3-right"
-          ><i class="fa fa-search"></i
-        ></a>
+          href="/admin"
+          class="w3-bar-item w3-button w3-hide-small w3-right loginButton"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+            />
+          </svg>
+          Login
+        </a>
       </div>
     </div>
 
@@ -97,13 +118,24 @@
         onclick="myFunction()"
         >MERCH</a
       >
+      <a
+        href="/admin"
+        class="w3-bar-item w3-button w3-hide-small w3-right loginButton"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+          />
+        </svg>
+        Login
+      </a>
     </div>
 
     <!-- Page content -->
     <div class="w3-content" style="max-width: 2000px; margin-top: 46px">
       <!-- Automatic Slideshow Images -->
       <div class="mySlides w3-display-container w3-center">
-        <img src="/assets/la.jpg" style="width: 100%" />
+        <img src="/assets/paris.jpg" style="width: 100%" />
         <div
           class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"
         >
@@ -121,7 +153,7 @@
         </div>
       </div>
       <div class="mySlides w3-display-container w3-center">
-        <img src="/assets/chicago.jpg" style="width: 100%" />
+        <img src="/assets/paris.jpg" style="width: 100%" />
         <div
           class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small"
         >
