@@ -5,9 +5,4 @@ if ($uri === '/') {
     include('index.html');
     exit();
 }
-if ($uri === '/upload') {
-    include('upload.html');
-    exit();
-}
-
 ?>
