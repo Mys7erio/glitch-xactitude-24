@@ -10,7 +10,7 @@ Never gonna tell a lie and hurt you
 import figlet from 'https://cdn.jsdelivr.net/npm/figlet@1.7.0/+esm'
 
 // Example using asynchronous fetch without explicit error handling
-fetch('http://127.0.0.1:5500/fonts/Standard.flf')
+fetch('/fonts/Standard.flf')
     .then(response => response.text())
     .then(fontData => {
         figlet.parseFont('Standard', fontData);
