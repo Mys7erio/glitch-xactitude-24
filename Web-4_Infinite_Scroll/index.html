@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Let's Get Rolling!</title>
 
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Verdana;
-        }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Verdana;
+      }
 
-        .infinite {
-            padding: 0 0 100vh 0;
-        }
+      .infinite {
+        padding: 0 0 100vh 0;
+      }
 
-        .words-of-wisdom {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+      .words-of-wisdom {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
 
-        .flag {
-            color: white;
-        }
+      .flag {
+        color: white;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>The Flag is at the end of this page!</h1>
     <h2>Get it if you can ;)</h2>
 
@@ -55,36 +54,31 @@
     </pre>
 
     <div class="infinite">
-        <pre>
+      <pre>
             <p class="words-of-wisdom">
 
             </p>
         </pre>
     </div>
 
-    <h1 class="flag">Flag: Glitch{Rick_Astley_Gave_You_Up}</h1>
-
-</body>
-
+    <h1 class="flag">Flag: GLITCH{Rick_Astley_Gave_You_Up}</h1>
+  </body>
 </html>
 
-
-
 <script type="module">
-    import { generateWisdom } from './words-of-wisdom.js'
+  import { generateWisdom } from "./words-of-wisdom.js";
 
-    let wordIndex = 0
+  let wordIndex = 0;
 
-    window.addEventListener('scroll', function () {
-        let infiniteContainerHeight = document.querySelector('.infinite').clientHeight
+  window.addEventListener("scroll", function () {
+    let infiniteContainerHeight =
+      document.querySelector(".infinite").clientHeight;
 
-        if ((infiniteContainerHeight - window.scrollY) < (window.innerHeight * 2)) {
-
-            let wordsOfWisdom = document.querySelector('.words-of-wisdom')
-            let [newWordIndex, wisdom] = generateWisdom(wordIndex)
-            wordIndex = newWordIndex
-            wordsOfWisdom.innerHTML += wisdom
-        }
-
-    })
+    if (infiniteContainerHeight - window.scrollY < window.innerHeight * 2) {
+      let wordsOfWisdom = document.querySelector(".words-of-wisdom");
+      let [newWordIndex, wisdom] = generateWisdom(wordIndex);
+      wordIndex = newWordIndex;
+      wordsOfWisdom.innerHTML += wisdom;
+    }
+  });
 </script>

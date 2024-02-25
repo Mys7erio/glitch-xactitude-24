@@ -40,7 +40,7 @@ if (isset($_GET['username']) && isset($_GET['password'])) {
 
     if ($numRows > 0) {
         echo '<pre>';
-        echo 'Flag: glitch{Th1s_Is_Sp4rt4!}';
+        echo 'Flag: GLITCH{Th1s_Is_Sp4rt4!}';
         echo '</pre>';
     } else {
         http_response_code(401);

@@ -10,7 +10,7 @@ if (isset($_COOKIE['isAdmin'])){
 
     if ($isAdmin['admin']) {
         
-        $flag = "glitch{h1dd3n_pr1v1lege_5f4dc}";
+        $flag = "GLITCH{h1dd3n_pr1v1lege_5f4dc}";
 
     } else {
         
