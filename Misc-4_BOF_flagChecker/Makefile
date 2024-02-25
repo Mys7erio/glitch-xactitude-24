@@ -1,4 +1,5 @@
 # Makefile
+# only for local dev
 
 COMPILE := gcc
 CARGS := -fno-stack-protector
