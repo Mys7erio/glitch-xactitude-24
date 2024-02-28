@@ -1,19 +1,20 @@
-FROM ubuntu:20.04
+FROM debian:stable-slim
 
-RUN apt-get update
-#RUN apt-get install ucspi-tcp 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc libc6-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# for gcc
-RUN apt-get install -y build-essential
+# for tcpserver
+# RUN apt-get install ucspi-tcp
 
 WORKDIR /app
 COPY . /app
-RUN mv ./ynetd /usr/local/bin/ynetd
 
 RUN gcc -fno-stack-protector /app/flagChecker.c -o /app/flagChecker.o
+
 EXPOSE 5555
 
-CMD ynetd -a 0.0.0.0 -p 5555 "timeout 30 ./flagChecker.o"
+CMD ./ynetd -a 0.0.0.0 -p 5555 "timeout 30 ./flagChecker.o"
 
 
 # Alternative ways to bind binary to port
