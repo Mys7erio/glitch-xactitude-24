@@ -16,7 +16,8 @@ int main(){
 	flag_file = fopen("flag.txt", "r");
 	fgets(FLAG, 100, flag_file);
 
-    printf("+-------[ Flag Checker ]-----+\n");
+    printf("\033[2J\033[H");
+    printf("\033[0;33m+---------------------[ Flag Checker ]---------------------+\033[0m\n");
 	printf("\n[ Enter your flag ]=> ");
 	gets(UserFlag);
 
